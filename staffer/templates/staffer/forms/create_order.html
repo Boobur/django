@@ -1,0 +1,84 @@
+{% extends 'staffer/layout.html' %}	
+{% load static %}
+{% block content %}
+<div class="app-content pt-3 p-md-3 p-lg-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="text-center mb-3">Окно ввода информации о заказах</h2>
+                <form action="" method="post">
+                    {% csrf_token%}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label  class="form-label" for="{{form.cust_surname.id_for_label}}">Фамилия</label>
+                                {{form.cust_surname}}   
+                            </div> 
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label  class="form-label" for="{{form.cust_name.id_for_label}}">Имя</label>
+                                {{form.cust_name}}   
+                            </div>
+                        </div>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label  class="form-label" for="{{form.cust_phone.id_for_label}}">Телефон</label>
+                                {{form.cust_phone}}   
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label  class="form-label" for="{{form.car_name.id_for_label}}">Наименование авто</label>
+                                {{form.car_name}}   
+                            </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label  class="form-label" for="{{form.car_color.id_for_label}}">Цвет авто</label>
+                                {{form.car_color}}   
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label  class="form-label" for="{{form.car_position.id_for_label}}">Позиция авто</label>
+                                {{form.car_position}}   
+                            </div>  
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label  class="form-label" for="{{form.car_year.id_for_label}}">Год выпуска</label>
+                                {{form.car_year}}   
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label  class="form-label" for="{{form.payment.id_for_label}}">Тип оплаты</label>
+                                {{form.payment}}   
+                            </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label  class="form-label" for="{{form.quantity.id_for_label}}">Количество</label>
+                                {{form.quantity}}   
+                            </div>
+                        </div>
+                      </div>
+
+                    <div class="text-right"><input type="submit" value="Создать" class="btn btn-success mt-2 "></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

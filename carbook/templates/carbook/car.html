@@ -1,0 +1,58 @@
+{% extends 'carbook/layout.html' %}	
+{% load static %}
+<!-- Загаловка страниции -->
+{%block title %}
+    Авто
+{% endblock %}
+
+<!-- Контент страниции -->
+{% block content %}
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../../../static/carbook/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+        <div class="col-md-9 ftco-animate pb-5">
+          <h1 class="mb-3 bread">Выберите ваше авто</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="ftco-section bg-light">
+    	<div class="container">
+    		<div class="row">
+                {% for item in car_info %}
+    			<div class="col-md-4">
+    				<div class="car-wrap rounded ftco-animate">
+    					<div class="img rounded d-flex align-items-end" style="background-image: url(../../../../media/{{item.car_photo}})">
+    					</div>
+    					<div class="text">
+    						<h2 class="mb-0"><a href="#">{{item.car_name}}</a></h2>
+    						<div class="d-flex mb-3">
+	    						<span class="cat">{{item.car_category}}</span>
+	    						<p class="price ml-auto">договорная<span>сум</span></p>
+    						</div>
+    						<p class="d-flex mb-0 d-block"><a href="#" class="btn btn-primary py-2 mr-1">Заказать сейчас</a> <a href="#" class="btn btn-secondary py-2 ml-1">Характеристика</a></p>
+    					</div>
+    				</div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row mt-5">
+                <div class="col text-center">
+                  <div class="block-27">
+                    <ul>
+                      <li><a href="#">&lt;</a></li>
+                      <li class="active"><span>1</span></li>
+                      <li><a href="#">2</a></li>
+                      <li><a href="#">3</a></li>
+                      <li><a href="#">4</a></li>
+                      <li><a href="#">5</a></li>
+                      <li><a href="#">&gt;</a></li>
+                    </ul>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+{% endblock %}
+

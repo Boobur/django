@@ -1,0 +1,290 @@
+{% extends 'carbook/layout.html' %}	
+{% load static %}
+<!-- Загаловка страниции -->
+{%block title %}
+    Главная страница
+{% endblock %}
+
+<!-- Контент страниции -->
+{% block content %}
+<div class="hero-wrap ftco-degree-bg" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
+        <div class="col-lg-8 ftco-animate">
+            <div class="text w-100 text-center mb-md-5 pb-md-5">
+              <h1 class="mb-4">Быстро &amp; Доступно</h1>
+              <p style="font-size: 18px;">Обратившись нам вы не пожалеете, самые выгодные условия только для вас!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <section class="ftco-section ftco-no-pt bg-light">
+      <div class="container">
+          <div class="row no-gutters">
+              <div class="col-md-12	featured-top">
+                  <div class="row no-gutters">
+                        <div class="col-md-4 d-flex align-items-center">
+                        <form action="" method ="post" class="request-form ftco-animate bg-primary">
+                        <h2>Обратный звонок</h2>
+                              {% csrf_token %}
+                              <div class="form-group">
+                                  <label for="" class="label">Фамилия</label>
+                                  {{form.surname}} 
+                              </div>
+                              <div class="form-group">
+                                    <label for="" class="label">Имя</label>
+                                    {{form.name}}
+                                </div>
+                                <div class="d-flex">
+                                        <div class="form-group mr-2">
+                                          <label for="" class="label">Телефон 1</label>
+                                          {{form.phone1}}  
+                                        </div>
+                                        <div class="form-group ml-2">
+                                          <label for="" class="label">Телефон 2</label>
+                                          {{form.phone2}} 
+                                        </div>
+                                </div>
+                              <div class="form-group">
+                                  <label for="" class="label">Е-майл адрес</label>
+                                  {{form.email}} 
+                              </div>
+                    
+                            <div class="form-group">
+                                <label for="" class="label">Адрес</label>
+                                {{form.address}}  
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Перезвонить" class="btn btn-secondary py-3 px-4">
+                            </div>
+                          </form>
+                        </div>
+                        <div class="col-md-8 d-flex align-items-center">
+                            <div class="services-wrap rounded-right w-100">
+                                <h3 class="heading-section mb-4">Лучший способ покупки Авто</h3>
+                                <div class="row d-flex mb-4">
+                            <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                              <div class="services w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+                                <div class="text w-100">
+                                  <h3 class="heading mb-2">Выберите место</h3>
+                              </div>
+                              </div>      
+                            </div>
+                            <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                              <div class="services w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-handshake"></span></div>
+                                <div class="text w-100">
+                                  <h3 class="heading mb-2">Сделайте удачную сделку</h3>
+                                </div>
+                              </div>      
+                            </div>
+                            <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                              <div class="services w-100 text-center">
+                                <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
+                                <div class="text w-100">
+                                  <h3 class="heading mb-2">Забронируйте Авто</h3>
+                                </div>
+                              </div>      
+                            </div>
+                          </div>
+                          <p><a href="#" class="btn btn-primary py-3 px-4">Забронировать Авто</a></p>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+        </div>
+  </section>
+
+
+  <section class="ftco-section ftco-no-pt bg-light">
+      <div class="container">
+          <div class="row justify-content-center">
+        <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+            <span class="subheading">Что мы предлагаем</span>
+          <h2 class="mb-2">Авто от лучших производителей</h2>
+        </div>
+      </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="carousel-car owl-carousel">
+                    {% for item in car_info %}
+                      <div class="item">
+                          <div class="car-wrap rounded ftco-animate">
+                              <div class="img rounded d-flex align-items-end" style ="background-image: url('../../../../media/{{item.car_photo}}')">
+                              </div>
+                              <div class="text">
+                                  <h2 class="mb-0"><a href="#">{{item.car_name}}</a></h2>
+                                  <div class="d-flex mb-3">
+                                      <span class="cat">{{item.car_category}}</span>
+                                      <p class="price ml-auto"> <span>Договарная</span></p>
+                                  </div>
+                                  
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="ftco-section ftco-about">
+          <div class="container">
+              <div class="row no-gutters">
+                  <div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center about-jpg" >
+                    
+                  </div>
+                  <div class="col-md-6 wrap-about ftco-animate">
+                  <div class="heading-section heading-section-white pl-md-5">
+                      <span class="subheading">О нас</span>
+                    <h2 class="mb-4">PAXTAOBOD</h2>
+
+                    <p>Слаженный, профессиональный коллектив, опытные технические специалисты и компетентные менеджеры— это сердце нашего автосалона, воплощение того, как мы думаем и действуем.
+                    Индивидуальный подход к каждому клиенту- наш принцип.</p>
+                    <p>Пропущенное техническое обслуживание может привести к дополнительным расходам по замене дорогостоящих запчастей или к более неприятным последствиям.
+                    Воспользовавшись нашими услугами, Вы непременно оцените все преимущества обслуживания. Мы нацелены только на качественный результат и уже заслужили доверие многочисленных клиентов!</p>
+                    <p><a href="#" class="btn btn-primary py-3 px-4">Поиск Авто</a></p>
+                  </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="ftco-section">
+          <div class="container">
+              <div class="row justify-content-center mb-5">
+        <div class="col-md-7 text-center heading-section ftco-animate">
+            <span class="subheading">Услуги</span>
+          <h2 class="mb-3">наши новые услуги</h2>
+        </div>
+      </div>
+              <div class="row">
+                  <div class="col-md-3">
+                      <div class="services services-2 w-100 text-center">
+              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-wedding-car"></span></div>
+              <div class="text w-100">
+              <h3 class="heading mb-2">Свадебные церемонии</h3>
+              <p>Все наши услуги выполняются профессионалами своего дела и каждый из них несет за собой гарантию.</p>
+            </div>
+          </div>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="services services-2 w-100 text-center">
+              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
+              <div class="text w-100">
+              <h3 class="heading mb-2">Поездка по городу</h3>
+              <p>Все наши услуги выполняются профессионалами своего дела и каждый из них несет за собой гарантию.</p>
+            </div>
+          </div>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="services services-2 w-100 text-center">
+              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-car"></span></div>
+              <div class="text w-100">
+              <h3 class="heading mb-2">Встреча с аэропорта</h3>
+              <p>Все наши услуги выполняются профессионалами своего дела и каждый из них несет за собой гарантию.</p>
+            </div>
+          </div>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="services services-2 w-100 text-center">
+              <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-transportation"></span></div>
+              <div class="text w-100">
+              <h3 class="heading mb-2">Обслуживание по городу</h3>
+              <p>Все наши услуги выполняются профессионалами своего дела и каждый из них несет за собой гарантию.</p>
+            </div>
+          </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <section class="ftco-section ftco-intro ftco-intro-jpg">
+          <div class="overlay"></div>
+          <div class="container">
+              <div class="row justify-content-end">
+                <div class="col-md-6 heading-section heading-section-white ftco-animate  ">
+                    <h2 class="mb-3">Хотите сотрудничать с нами? Не теряйте времени.</h2>
+                    <a href="#" class="btn btn-primary btn-lg">Станьте водителем</a>
+                </div>
+              </div>
+          </div>
+      </section>
+
+
+  <section class="ftco-section testimony-section bg-light">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-md-7 text-center heading-section ftco-animate">
+            <span class="subheading">Отзывы</span>
+          <h2 class="mb-3">Клиенты</h2>
+        </div>
+      </div>
+      <div class="row ftco-animate">
+        <div class="col-md-12">
+          <div class="carousel-testimony owl-carousel ftco-owl">
+            {% for item in customer %}
+            <div class="item">
+              <div class="testimony-wrap rounded text-center py-4 pb-5">
+                <div class="user-img mb-2" style="background-image: url({../../../static/carbook/images/default-user.png)">
+                </div>
+                <div class="text pt-4">
+                  <p class="mb-4">Воспользовавшись вашими услугами я остался доволен, приятный  персонал и качественные услуги, очень рад.</p>
+                  <p class="name">{{item.surname}} {{item.name}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ftco-counter ftco-section img bg-light" id="section-counter">
+          <div class="overlay"></div>
+      <div class="container">
+          <div class="row">
+        <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+          <div class="block-18">
+            <div class="text text-border d-flex align-items-center">
+              <strong class="number" data-number="10">0</strong>
+              <span>Лет <br>Опыта</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+          <div class="block-18">
+            <div class="text text-border d-flex align-items-center">
+              <strong class="number" data-number="432">0</strong>
+              <span>Проданных<br>Машин</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+          <div class="block-18">
+            <div class="text text-border d-flex align-items-center">
+              <strong class="number" data-number="420">0</strong>
+              <span>Счастливых <br>Клиентов</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+          <div class="block-18">
+            <div class="text d-flex align-items-center">
+              <strong class="number" data-number="4">0</strong>
+              <span>Активных <br>Услуг</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+  </section>
+ 
+{% endblock %}
+
